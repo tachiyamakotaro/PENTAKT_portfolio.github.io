@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="style.css">
 
-# ゲームプログラマー ポートフォリオ
+<h1>ゲームプログラマー ポートフォリオ</h1>
 
 ## 目次
 
