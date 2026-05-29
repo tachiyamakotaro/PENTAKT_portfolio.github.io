@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>portfolio.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> or <div class="page"></div> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="ゲームプログラマー-ポートフォリオ">ゲームプログラマー ポートフォリオ</h1>
+<h2 id="目次">目次</h2>
+<ul>
+<li><a href="#%E8%87%AA%E5%B7%B1%E7%B4%B9%E4%BB%8B">自己紹介</a></li>
+<li><a href="#%E4%BD%9C%E5%93%81%E6%A6%82%E8%A6%81">作品概要</a></li>
+<li><a href="#%E3%82%B2%E3%83%BC%E3%83%A0%E7%B4%B9%E4%BB%8B">ゲーム紹介</a></li>
+<li><a href="#%E6%8B%85%E5%BD%93%E7%AE%87%E6%89%80">担当箇所</a>
+<ul>
+<li><a href="#%E3%82%A8%E3%83%8D%E3%83%9F%E3%83%BCai%E3%82%B9%E3%83%86%E3%83%BC%E3%83%88%E3%83%9E%E3%82%B7%E3%83%B3">エネミーAI・ステートマシン</a></li>
+<li><a href="#%E3%81%8B%E3%81%BE%E3%81%8F%E3%82%89%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%A9%E3%82%AF%E3%83%88%E3%81%A8%E5%8B%95%E7%9A%84%E7%A0%B4%E5%A3%8A%E3%82%AE%E3%83%9F%E3%83%83%E3%82%AF">かまくら（インタラクトと動的破壊ギミック）</a></li>
+<li><a href="#%E3%82%B2%E3%83%BC%E3%83%A0%E7%94%A8%E5%9F%BA%E5%BA%95%E3%82%AF%E3%83%A9%E3%82%B9-iobject-%E3%81%AE%E8%A8%AD%E8%A8%88%E5%AE%9F%E8%A3%85">ゲーム用基底クラス IObject の設計・実装</a></li>
+<li><a href="#%E3%82%A2%E3%83%81%E3%83%BC%E3%83%96%E3%83%A1%E3%83%B3%E3%83%88%E9%81%94%E6%88%90%E9%80%9A%E7%9F%A5%E3%82%A2%E3%83%8B%E3%83%A1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3">アチーブメント達成通知アニメーション</a></li>
+<li><a href="#%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E3%83%9E%E3%83%8D%E3%83%BC%E3%82%B8%E3%83%A3%E3%83%BCsoundmanager">サウンドマネージャー（SoundManager）</a></li>
+<li><a href="#%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%AF%E3%83%A9%E3%82%B9">アプリケーションクラス</a></li>
+<li><a href="#%E3%83%95%E3%82%A7%E3%83%BC%E3%83%89%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0">フェードシステム</a>
+<br><br><br><br></li>
+</ul>
+</li>
+</ul>
+<h2 id="自己紹介">自己紹介</h2>
+<img src="./images/me.png" width="20%">
+<h3 id="-名前">■ 名前</h3>
+<p>   <strong>立山 虎太朗　(たちやま こたろう)</strong></p>
+<h3 id="-学校">■ 学校</h3>
+<p>   <strong>河原電子ビジネス専門学校　ゲームクリエイター科</strong></p>
+<h3 id="-メール">■ メール</h3>
+<p>   ca01254014@st.kawahara.ac.jp</p>
+<h3 id="-自分の強み長所">■ 自分の強み（長所）</h3>
+<p>的確な仕様把握に基づく、効率的なアーキテクチャの設計・実装力<br>
+私は「いかに無駄なく手戻りを防ぐか」を徹底し、事前に仕様を完璧に把握した上で最適なプログラムを構築する強みを持っています。<br>
+手作業の手間を排除する効率的な仕組みづくりを得意としており、実際の制作でも、自動ガベージコレクションの導入やStatic関数を用いたメモリ節約設計など、破綻しにくく効率的なシステムを自ら設計・具現化しました。</p>
+<h3 id="-趣味休日の過ごし方">■ 趣味・休日の過ごし方</h3>
+<p>休日は、漫画を読んだりゲームをプレイしたりして過ごしています。<br>
+最近は国内外の大自然を紹介する動画を観るのにはまっており、美しい景色や環境に触れて心をリフレッシュさせる時間が心地よい息抜きになっています。<br>
+プライベートでしっかり感性を刺激し、オンとオフの切り替えを行うことが、平日の高い開発パフォーマンスや要領の良いタスク完遂へと繋がっています。</p>
+<h3 id="-好きなエンタメ">■ 好きなエンタメ</h3>
+<p>RPG・アクションゲーム（特に国内外のトレンドや「メトロイドヴァニア」）
+普段からRPGやアクションゲームを好んでプレイしており、最近は『プラグマタ』や『コードヴェイン』、卓越した操作性を持つ『セレステ』などに触れました。<br>
+中でも、特に海外のインディーシーンで熱狂的な人気を誇る「メトロイドヴァニア」というジャンルに強い関心を持っています。<br>
+直近では海外発の『ホロウナイト：シルクソング』をプレイし、その洗練されたレベルデザインを体感しました。<br>
+世界中で愛されるこのジャンルを深く分析・研究することは、グローバルなゲーム事情やトレンドを掴むきっかけになっており、自身の開発における演出やギミックの引き出しを広げることにも繋がっています。</p>
+<p><br><br><br><br></p>
+<h2 id="作品概要">作品概要</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">項目</th>
+<th style="text-align:left">内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">タイトル</td>
+<td style="text-align:left">ぺんたくと</td>
+</tr>
+<tr>
+<td style="text-align:left">制作人数</td>
+<td style="text-align:left">4人</td>
+</tr>
+<tr>
+<td style="text-align:left">製作期間</td>
+<td style="text-align:left">2025年4月～現在</td>
+</tr>
+<tr>
+<td style="text-align:left">ゲームジャンル</td>
+<td style="text-align:left">3Dアクションゲーム</td>
+</tr>
+<tr>
+<td style="text-align:left">プレイ人数</td>
+<td style="text-align:left">1</td>
+</tr>
+<tr>
+<td style="text-align:left">対応ハード</td>
+<td style="text-align:left">PC (Windows 11) / Xbox コントローラー</td>
+</tr>
+<tr>
+<td style="text-align:left">使用言語</td>
+<td style="text-align:left">C++</td>
+</tr>
+<tr>
+<td style="text-align:left">エンジン</td>
+<td style="text-align:left">BeastEngine（学校内製エンジン（k2EngineLow） / DirectX12）</td>
+</tr>
+<tr>
+<td style="text-align:left">使用ツール</td>
+<td style="text-align:left">Visual Studio 2026<br>Visual Studio Code<br>Adobe Photoshop 2026<br>3dsMax 2026<br>Effekseer<br>GitHub<br>Fork</td>
+</tr>
+<tr>
+<td style="text-align:left">GitHub URL</td>
+<td style="text-align:left">https://github.com/TakebayashiNaoya/ProjectBeast</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<!-- <hr style="width: 300px; margin-left: 0;"> -->
+<p><br><br><br><br></p>
+<hr>
+<h2 id="ゲーム紹介">ゲーム紹介</h2>
+<p>親ペンギンを操作してシロクマから逃げながら子ペンギンを救出し、その道中でアチーブメントを達成して、ハイスコアを目指していくゲームです。<br><br>
+<img src="./images/pentakt1.png" width="40%"><br>
+<img src="./images/pentakt2.png" width="40%"></p>
+<p><br><br><br><br></p>
+<hr>
+<h2 id="担当箇所">担当箇所</h2>
+<summary><span style="font-size: 1.2em; font-weight: bold;">Source</span></summary>
+<ul>
+	<li><code>application.h</code> / <code>.cpp</code></li>
+<summary><span style="font-size: 1.2em; font-weight: bold;">Core</span></summary>
+<ul>
+<li><code>Fade.h</code> / <code>.cpp</code></li>
+</ul>
+  <summary><span style="font-size: 1.2em; font-weight: bold;">Enemy</span></summary>
+  <ul>
+    <li><code>Enemy.h</code> / <code>.cpp</code></li>
+    <li><code>EnemyController.h</code> / <code>.cpp</code></li>
+    <li><code>EnemyIState.h</code> / <code>.cpp</code></li>
+    <li><code>EnemyParameter.h</code> / <code>.cpp</code></li>
+    <li><code>EnemyStateMachine.h</code> / <code>.cpp</code></li>
+    <li><code>EnemyStatus.h</code> / <code>.cpp</code></li>
+    <li><code>EnemyTypes.h</code> / <code>.cpp</code></li>
+  </ul>
+<summary><span style="font-size: 1.2em; font-weight: bold;">Manager</span></summary>
+<ul>
+<li><code>IglooManager.h</code> / <code>.cpp</code></li>
+</ul>
+ <summary><span style="font-size: 1.2em; font-weight: bold;">Sound</span></summary>
+ <ul>
+ <li><code>SoundManager.h</code> / <code>.cpp</code></li>
+ <li><code>Types.h</code> / <code>.cpp</code></li>
+ </ul>
+<summary><span style="font-size: 1.2em; font-weight: bold;">UI</span></summary>
+<ul>
+<summary><span style="font-size: 1.2em; font-weight: bold;">Menus</span></summary>
+<ul>
+<li><code>AchievementNotificationMenu.h</code> / <code>.cpp</code></li>
+<li><code>InGameButtonMenu.h</code> / <code>.cpp</code></li>
+</ul>
+<summary><span style="font-size: 1.2em; font-weight: bold;">Model</span></summary>
+<ul>
+<li><code>AchievementAnimStatus.h</code> / <code>.cpp</code></li>
+</ul>
+</ul>
+<li><code>IObject.h</code> / <code>.cpp</code></li>
+<p><br><br><br><br></p>
+<h2 id="エネミーaiステートマシン">エネミーAI・ステートマシン</h2>
+<img src="./images/enemy_ai.gif" width="45%">
+<p>プレイヤーと子ペンギンに「執拗に追われる緊迫感」を与えるため、視覚・聴覚による索敵と、破綻のない滑らかな状態遷移を実現する自律行動AIを実装しました。</p>
+<h3 id="stateパターンによる状態管理の堅牢化">Stateパターンによる状態管理の堅牢化</h3>
+<p>エネミーは「待機・索敵・追跡・攻撃・睡眠…」など多くの状態を持つため、当初はifやswitchで状態を分岐させていましたが、状態が増えるにつれてコードが肥大化し、「ある状態のときだけ起きるバグ」の原因特定が困難になっていきました。
+そこでデザインパターンを調べたところ、Stateパターンが状態ごとに処理を独立したクラスへ分離できる点で最適だとわかり、採用しました。<br>
+<strong>EnemyIdleState　/　EnemyChaseState　/　EnemyAttackState　…（各状態が独立したクラス）</strong><br>
+各ステートクラスは Enter / Update / Exit のみを責務として持ち、他の状態の処理に絶対に干渉しない構造になっています。これにより「攻撃ステートを修正したら索敵が壊れた」といった意図しない影響が起きにくくなり、バグの調査・修正がステートクラス単位で完結するようになりました。また、新しい状態を追加する際も既存のクラスに手を加えずクラスを1つ追加するだけで済み、チーム開発での安全な機能拡張にも貢献しています。</p>
+<h3 id="static関数static変数による共有メモリ設計">Static関数・Static変数による共有メモリ設計</h3>
+<p>各ステートの Enter / Update / Exit / Check の処理は、すべて static 関数として定義しています。これらの関数ポインタは static な std::map（状態テーブル）に1度だけ登録されるため、エネミーが何体同時に存在しても、AIロジック自体はメモリ上に1つしか存在しません。
+各インスタンスが個別に保持するのは「現在のステートID」などの最小限のデータだけに抑えており、エネミーの数が増えてもメモリ使用量を低く維持できる設計にしています。</p>
+<h3 id="コントローラーの分離設計aiの汎用化">コントローラーの分離設計（AIの汎用化）</h3>
+<p>AI用の処理（入力や判断）と、キャラクターの動作（移動やアニメーション）を密結合させず、別の処理として分離して設計しています。
+この考え方により、エネミー専用の処理にとどまらず、<strong>将来的には他のキャラクターやNPC、あるいはプレイヤー入力でも操作を差し替えられるような汎用性の高い構造</strong>を実現しています。
+<br>
+<img src="./images/enemy_control_v2.png" width="45%"></p>
+<h3 id="スタック停滞の自動検知と復帰">スタック（停滞）の自動検知と復帰</h3>
+<p>徘徊や帰巣の際、地形に引っかかって数秒間移動できなかった場合（スタック）を検知するタイマーを実装しました。自動で次の巡回ポイントへ移行、または入力をリセットすることで、AIの進行不能バグを未然に防いでいます。</p>
+<h3 id="レイキャスト判定と音による動的索敵">レイキャスト判定と音による動的索敵</h3>
+<p>視界の遮蔽判定には、スフィアキャスト（球状キャスト）などではなく、処理負荷の軽いRaycast（線分キャスト）を採用しました。
+Raycastは小さな隙間をすり抜けてしまう弱点もありますが、<strong>本作のレベルデザインやゲーム性においては問題ないと判断し、パフォーマンス（軽さ）を優先した設計</strong>にしています。
+さらに、<code>NoiseManager</code>と連携し、プレイヤーが立てた音の大きさが閾値を超えた場合にその座標へ向かって歩き出すなど、動的でメリハリのある索敵処理を実装しています。</p>
+<img src="./images/raycast_noise_diagram.png" width="60%">
+<p><br><br><br><br></p>
+<h2 id="かまくらインタラクトと動的破壊ギミック">かまくら（インタラクトと動的破壊ギミック）</h2>
+<img src="./images/igloo_destroy.gif" width="45%">
+<p>ペンギンの避難所となる「かまくら」の管理と、エネミーによる破壊ギミックを実装しました。
+安全地帯の役割をUIで直感的に伝えつつ、それがエネミーに破壊される絶望感を、視覚・聴覚の同期によって最大化しています。</p>
+<h3 id="アニメーションとロジックの完全同期ステートとai制御の連携設計">アニメーションとロジックの完全同期（ステートとAI制御の連携設計）</h3>
+<p>エネミーの攻撃時、単なる距離判定でかまくらを壊すのではなく、アニメーションの**「叩きつけフレーム」の瞬間にのみ破壊処理が走る**ように設計しています。
+具体的なプログラムの構造として、以下のような役割分担を行っています。</p>
+<ol>
+<li><strong>状態管理（IState）</strong>：攻撃ステート側で時間を計測し、叩きつけの瞬間に1度だけ「攻撃実行フラグ」を立てる。</li>
+<li><strong>AI制御（Controller）</strong>：AI側で毎フレーム監視を行い、フラグが立っていたら**即座にフラグを折って（二重実行を防止）**破壊処理を実行する。</li>
+</ol>
+<p>さらに、攻撃開始の段階で「ターゲットがかまくらの中にいるか」「どのかまくらか（識別キー）」を事前に検索・記憶（キャッシュ）しておくことで、叩きつけの瞬間に余計な検索負荷をかけず、安全かつ確実に破壊（<code>BreakIgloo</code>）を実行できる設計にしています。</p>
+<h3 id="安全なオブジェクト破棄">安全なオブジェクト破棄</h3>
+<p>破壊時には当たり判定の無効化、非表示化、そしてメモリ上からの安全な削除を即座に行い、同時に中のペンギンを強制排出する一連のフローを安全に構築しています。</p>
+<p><br><br><br><br></p>
+<h2 id="ゲーム用基底クラス-iobject-の設計実装">ゲーム用基底クラス IObject の設計・実装</h2>
+<p>ゲーム内に登場するオブジェクトの根幹となる基底クラス <code>IObject</code> を独自に設計および実装しました。</p>
+<h3 id="実装の経緯と意図">実装の経緯と意図</h3>
+<p>既存のフレームワークに用意されていた <code>IGameObject</code> にブラックボックスとして依存するのではなく、オブジェクトの生成から更新、描画、破棄までのライフサイクル処理を<strong>自分たちの手で1から構築し、内部構造への深い理解と最適化を図るため</strong>に作成しました。</p>
+<h3 id="データ駆動とメモリの安全性">データ駆動とメモリの安全性</h3>
+<ul>
+<li><strong>共通インターフェースの確立</strong>：派生クラスが共通して持つべき機能（初期化、更新、描画など）を仮想関数として定義し、ポリモーフィズムを活用した拡張性の高いアーキテクチャの基盤を作りました。</li>
+<li><strong>一元管理</strong>：マネージャーからこの基底クラスのポインタを通して一括更新・一括破棄を行える仕組みを構築。コンテナのメモリを事前確保することで、動的生成されるオブジェクト群のメモリリークや処理落ちを防いでいます。</li>
+</ul>
+<img src="./images/class_inheritance_diagram.svg" width="60%">
+<p><br><br><br><br></p>
+<h2 id="アチーブメント達成通知アニメーション">アチーブメント達成通知アニメーション</h2>
+<img src="./images/achievement_ui.gif" width="45%">
+<p>特定条件を満たした際に、画面端にダイナミックに表示される実績解除通知UIを実装しました。
+プレイの達成感を高め、手触りの良いリッチなゲーム体験（ゲーム感）を提供することを目的としています。</p>
+<h3 id="キューqueueによるui衝突防止">キュー（Queue）によるUI衝突防止</h3>
+<p>複数の実績が同時に解除された際、UIが重なって表示されるバグを防ぐため、待ち行列システムを実装しました。1つの通知アニメーションが完全に終了してから次を表示する安全な設計にしています。</p>
+<img src="./images/queue_ui_collision_prevention_v2.svg" width="60%">
+<h3 id="ステートによるタイムライン制御">ステートによるタイムライン制御</h3>
+<p>UIの表示状態を <code>FadeIn -&gt; StampWait -&gt; StampPlay -&gt; FadeOut</code> と厳密に状態管理しています。フェード完了後に1秒待ってスタンプを押すなど、心地よい手触りの演出時間を正確に制御しました。</p>
+<p><br><br><br><br></p>
+<h2 id="サウンドマネージャーsoundmanager">サウンドマネージャー（SoundManager）</h2>
+<p>BGM、SE、Voiceの再生、停止、音量を集中統括するシングルトンマネージャーを実装しました。</p>
+<h3 id="発音数同時再生数の厳格な制限">発音数（同時再生数）の厳格な制限</h3>
+<p>キャラクター数が多い本作において、足音などが同時に大量発生して音が割れたり処理落ちが発生したりするのを防ぐため、<strong>サウンドの発音数を厳密に管理</strong>しています。
+特定のSEに対して「最大5音まで」といった発音数の上限を設定し、リクエスト時にカウントを行い、上限を超えた場合は自動でスキップする仕組みです。</p>
+<span style="font-size: 0.9em; color: #666;">
+※上限「5音」の根拠：自身での検証および第三者への試遊テストを経て、ゲームプレイの状況把握に支障が出ず、かつ音が飽和してうるさく感じられない最適な音数として導き出しました。なお、この数値は多くのSEでベースとして採用している代表値であり、効果音の種類や重要度に応じて個別に上限を設定しています。
+</span>
+<br>
+<img src="./images/sound_concurrent_limit.png" width="45%">
+<h3 id="自動ガベージコレクション">自動ガベージコレクション</h3>
+<p>毎フレームの更新処理にて、再生が終了したオーディオソースを自動検知してメモリから解放し、メモリリークを徹底的に防ぐ設計にしています。</p>
+<pre class="hljs"><code><div><span class="hljs-comment">/** SEリストから再生していないものがあれば削除する */</span>
+std::vector&lt;SEHandle&gt; eraseSEList;
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span>&amp; it : m_seList) {
+	<span class="hljs-type">const</span> <span class="hljs-keyword">auto</span> key = it.first;
+	<span class="hljs-keyword">auto</span>* se = it.second;
+	<span class="hljs-keyword">if</span> (!se-&gt;<span class="hljs-built_in">IsPlaying</span>()) {
+		eraseSEList.<span class="hljs-built_in">push_back</span>(key);
+		<span class="hljs-built_in">DeleteGO</span>(se);
+	}
+}
+<span class="hljs-keyword">for</span> (<span class="hljs-type">const</span> <span class="hljs-keyword">auto</span>&amp; key : eraseSEList) {
+	m_seList.<span class="hljs-built_in">erase</span>(key);
+	m_seHandleKindMap.<span class="hljs-built_in">erase</span>(key);
+}
+</div></code></pre>
+<img src="./images/sound_GC.png" height="40%">
+<h2 id="アプリケーションクラス">アプリケーションクラス</h2>
+<p>ゲームのメインループと、各種マネージャーのライフサイクルを一元管理する <code>Application</code> クラスを実装しました。</p>
+<h3 id="チーム開発のための管理基盤存在意義">チーム開発のための管理基盤（存在意義）</h3>
+<p>既存のシステムに処理を任せきりにするのではなく、<strong>「自分たちでゲーム全体の処理フロー（初期化・更新・描画・破棄）を完全に統制・把握しやすくするため」<strong>に、アプリケーションの根幹となる独立した管理クラスを用意しました。
+コンストラクタで各種マネージャーのインスタンス化を実行し、デストラクタでは</strong>その逆順で確実に破棄・解放処理を実行</strong>しています。
+システムや機能が今後どれだけ拡張されても、このクラスを見れば全体の実行順序や依存関係が一目で把握できるように設計し、マネージャー間の解放順の狂いによるダングリングポインタなどの重大なエラーを構造的に防止しました。</p>
+<pre class="hljs"><code><div>Application::<span class="hljs-built_in">Application</span>()
+{
+	nsBeastEngine::nsCollision::PhysicsWorld::<span class="hljs-built_in">Initialize</span>();
+	nsBeastEngine::OcclusionDitherManager::<span class="hljs-built_in">Initialize</span>();
+	camera::CameraManager::<span class="hljs-built_in">CreateInstance</span>();
+	core::ParameterManager::<span class="hljs-built_in">CreateInstance</span>();
+	core::Fade::<span class="hljs-built_in">Create</span>();
+	SoundManager::<span class="hljs-built_in">CreateInstance</span>();
+	NoiseManager::<span class="hljs-built_in">CreateInstance</span>();
+	SceneManager::<span class="hljs-built_in">CreateInstance</span>();
+	EffectManager::<span class="hljs-built_in">CreateInstance</span>();
+}
+
+Application::~<span class="hljs-built_in">Application</span>()
+{
+	SceneManager::<span class="hljs-built_in">DestroyInstance</span>();
+	NoiseManager::<span class="hljs-built_in">DestroyInstance</span>();
+	SoundManager::<span class="hljs-built_in">DestroyInstance</span>();
+	EffectManager::<span class="hljs-built_in">DestroyInstance</span>();
+	camera::CameraManager::<span class="hljs-built_in">DestroyInstance</span>();
+	core::ParameterManager::<span class="hljs-built_in">DestroyInstance</span>();
+	core::Fade::<span class="hljs-built_in">Delete</span>();
+	nsBeastEngine::nsCollision::PhysicsWorld::<span class="hljs-built_in">Finalize</span>();
+	nsBeastEngine::OcclusionDitherManager::<span class="hljs-built_in">Finalize</span>();
+}
+</div></code></pre>
+<p><br><br><br><br></p>
+<h2 id="フェードシステム">フェードシステム</h2>
+<img src="./images/fade_transition.gif" width="45%">
+<p>シーンが切り替わる際のロード画面のフェードイン・フェードアウト処理を統括するシステムを実装しました。</p>
+<h3 id="画面のフリーズ感払拭と遅延初期化">画面のフリーズ感払拭と遅延初期化</h3>
+<p>シーン遷移のデータロード中にゲーム画面がブツ切りになったり、完全に静止してプレイヤーにストレスを与えたりする違和感を無くすために導入しました。
+アプリケーション起動時の初期化負荷を分散させるため、ローディングサークルのスプライト生成には遅延初期化（Lazy Initialization）を採用し、初回呼び出し時にのみメモリを確保する設計にしています。</p>
+<h3 id="フレームレートに依存しない滑らかな演出">フレームレートに依存しない滑らかな演出</h3>
+<p>データロードによる高負荷で処理落ち（フレームレートの低下）が発生した場合でも、ロード中の演出速度が乱れない工夫を施しています。
+前フレームからの経過時間（DeltaTime）を回転の計算に乗算することで、<strong>フレームレートの変動に影響されず、ローディングサークルが常に滑らかに一定速度で回転し続ける仕様</strong>を実現し、製品クオリティのユーザー体験を維持しました。</p>
+
+</body>
+</html>
